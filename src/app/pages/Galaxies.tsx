@@ -11,14 +11,13 @@ const GalaxiesPageWrapper = styled.div`
   width: calc(100% - 6rem);
 `
 
-export const Galaxies = () => {
+export const Galaxies = (props: {galaxies: Array<any>}) => {
 
-  const { galaxies, requestStatus } = useFetchGalaxiesInfo()
 
   const renderLayout = () => {
-    if (requestStatus === LOADING_STATUS) return <LoadingSpinner />
-    if (requestStatus === ERROR_STATUS) return <h1>Error</h1>
-    return <GalaxiesLayout galaxies={galaxies} />
+    if (props.galaxies.length === 0) return <LoadingSpinner />
+
+    return <GalaxiesLayout galaxies={props.galaxies} />
   }
 
   return (
@@ -28,3 +27,7 @@ export const Galaxies = () => {
     </GalaxiesPageWrapper>
   );
 }
+
+Galaxies.defaultProps = {
+  galaxies: []
+};
