@@ -11,7 +11,7 @@
     "build-dev": "NODE_ENV=development npm run build-server && node --inspect dist/index.js",
     "build": "NODE_ENV=development npm run build-client && npm run build-server",
     "dev": "nodemon --ext ts --exec \"npm run build-dev\"",
-    "start": "NODE_ENV=development npm run build && NODE_ENV=development node dist/index.js"
+    "start": "NODE_ENV=production npm run build && NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -39,10 +39,13 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "nodemon": "^2.0.20",
+    "react-dev-utils": "^12.0.1",
     "swc-loader": "^0.2.3",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
+    "webpack-dev-middleware": "^6.1.1",
     "webpack-dev-server": "^4.11.1",
+    "webpack-hot-middleware": "^2.25.4",
     "webpack-node-externals": "^3.0.0"
   }
 }
